@@ -188,7 +188,7 @@ function App() {
   );
 
   return (
-    <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+    <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: 10, marginBottom: 30 }}>
       <h2>CMPE255 Homework 1 - Economic Data Dashboard</h2>
       <h4>By: Bryan Kwong</h4>
       <div style={{ width: "100%", maxWidth: 800 }}>{charts}</div>
