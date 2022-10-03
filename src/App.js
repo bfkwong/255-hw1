@@ -11,8 +11,13 @@ import {
   Legend
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+
 import econDataReadings from "./data/econ_data_reading.json";
 import growthRates from "./data/growth_rates.json";
+import highestPaying from "./data/highest_paying_profession.json";
+import lowestPaying from "./data/lowest_paying_profession.json";
+import BarGraph from "./BarGraph";
+import HistogramWrapper from "./Histogram";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -71,13 +76,32 @@ function processGrowthData() {
   return output;
 }
 
+function processProfessionPay(data) {
+  const { profession, value } = data;
+  const output = {
+    profession: [],
+    value: []
+  };
+
+  Object.keys(profession).forEach((idx) => {
+    output.profession.push(profession[idx]);
+    output.value.push(value[idx]);
+  });
+
+  return output;
+}
+
 function App() {
   const [readingsData, setReadingsData] = React.useState({});
   const [growthData, setGrowthData] = React.useState({});
+  const [highestPayingJob, setHighestPayingJob] = React.useState({});
+  const [lowestPayingJob, setLowestPayingJob] = React.useState({});
 
   React.useEffect(() => {
     setReadingsData(processEconDataReading());
     setGrowthData(processGrowthData());
+    setHighestPayingJob(processProfessionPay(highestPaying));
+    setLowestPayingJob(processProfessionPay(lowestPaying));
   }, []);
 
   React.useEffect(() => {
@@ -188,10 +212,22 @@ function App() {
   );
 
   return (
-    <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: 10, marginBottom: 30 }}>
+    <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: 30, marginBottom: 0 }}>
       <h2>CMPE255 Homework 1 - Economic Data Dashboard</h2>
       <h4>By: Bryan Kwong</h4>
-      <div style={{ width: "100%", maxWidth: 800 }}>{charts}</div>
+      <div style={{ width: "100%", maxWidth: 800 }}>
+        {charts}
+        <BarGraph data={highestPayingJob} title="Highest Paying Professions" color="rgba(255, 99, 132, 0.5)" />
+        <BarGraph data={lowestPayingJob} title="Lowest Paying Professions" color="rgba(75, 192, 192, 0.5)" />
+        <HistogramWrapper
+          x={growthData?.cpiInflation}
+          y={growthData?.averagePayNominal}
+          r={growthData?.highestPayNominal?.map?.(
+            (item, idx) => growthData?.highestPayNominal[idx] - growthData?.lowestPayNominal[idx]
+          )}
+        />
+      </div>
+      <p style={{ marginTop: 55, color: "gray" }}>Bryan Kwong {dayjs().format("YYYY")}</p>
     </div>
   );
 }

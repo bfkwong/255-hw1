@@ -1,0 +1,26 @@
+{
+  "profession": {
+    "0": "limited-service restaurants",
+    "1": "cafeterias, grill buffets, and buffets",
+    "2": "convenience stores",
+    "3": "nail salons",
+    "4": "snack and nonalcoholic beverage bars",
+    "5": "gasoline stations with convenience stores",
+    "6": "drycleaning and laundry services, except coin-operated",
+    "7": "gasoline stations",
+    "8": "restaurants and other eating places",
+    "9": "bowling centers"
+  },
+  "value": {
+    "0": 11.6390909091,
+    "1": 11.8825174825,
+    "2": 12.1593706294,
+    "3": 12.2054545455,
+    "4": 12.7933566434,
+    "5": 13.0016083916,
+    "6": 13.1053146853,
+    "7": 13.133006993,
+    "8": 13.2423776224,
+    "9": 13.4748251748
+  }
+}

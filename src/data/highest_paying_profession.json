@@ -1,0 +1,26 @@
+{
+  "profession": {
+    "0": "reinsurance carriers",
+    "1": "software publishers",
+    "2": "portfolio management",
+    "3": "miscellaneous intermediation",
+    "4": "other financial investment activities, including funds and trusts",
+    "5": "securities, commodity contracts, investments, and funds and trusts",
+    "6": "securities and commodity contracts brokerage and exchanges",
+    "7": "research and development in the physical, engineering, and life sciences, except nanotechnology and biotechnology",
+    "8": "investment advice",
+    "9": "scientific research and development services"
+  },
+  "value": {
+    "0": 57.5224475524,
+    "1": 53.1198601399,
+    "2": 53.0911888112,
+    "3": 51.0947552448,
+    "4": 49.5248951049,
+    "5": 49.2593006993,
+    "6": 49.0404195804,
+    "7": 47.8093706294,
+    "8": 47.4692307692,
+    "9": 47.147972028
+  }
+}
